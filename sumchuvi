@@ -1,1 +1,23 @@
-
+#include <bits/stdc++.h>
+using namespace std;
+int check(vector<int>nums){
+    sort(nums.begin(), nums.end());
+    for(int i = nums.size() -1 ; i>= 0; i--){
+        if(nums[i] < nums[i-1] + nums[i-2]){
+            return nums[i] + nums[i-1] + nums[i-2];
+        }
+    }
+    return 0;
+}
+int main (){
+    int n;
+    cin >> n;
+    vector<int>nums(n);
+    srand(time(NULL));
+    for(int i =0; i< n ; i++){
+        cin >> nums[i];
+    }
+    int result = check(nums);
+    cout << result  << endl;
+    return 0;
+}
